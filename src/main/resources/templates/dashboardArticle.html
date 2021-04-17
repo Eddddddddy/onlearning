@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <title>管理后台</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <!-- 引入 echarts.js -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/map/js/china.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/map/js/world.js"></script>
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/css/responsive.css">
+
+    <script type="text/javascript"
+            src="https://api.map.baidu.com/api?v=2.0&ak=5TiRITkawh1t8BI03EWRFOKrGvmgLUBq"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/extension/bmap.min.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/styled.css">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/animate.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="wrapper d-flex align-items-stretch">
+    <nav id="sidebar">
+        <div class="custom-menu">
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            </button>
+        </div>
+        <div class="img bg-wrap text-center py-4" style="background-image: url(images/bg_1.jpg);">
+            <div class="user-logo">
+                <h3>后台管理</h3>
+            </div>
+        </div>
+        <ul class="list-unstyled components mb-5">
+            <li>
+                <a href="/dashboard"><span class="fa fa-home mr-3"></span> 主页</a>
+            </li>
+            <li class="active">
+                <a href="/dashboard/article"><span class="fa fa-file-text mr-3"></span> 文章编辑</a>
+            </li>
+            <li>
+                <a href="/dashboard/user"><span class="fa fa-user mr-3"></span> 用户管理</a>
+            </li>
+            <li>
+                <a href="/dashboard/comment"><span class="fa fa-comments mr-3"></span> 评论管理</a>
+            </li>
+            <li>
+                <a href="/user/logoff"><span class="fa fa-sign-out mr-3"></span> 退出</a>
+            </li>
+        </ul>
+
+    </nav>
+    <!--___________________________________________________________________________________________________________________________________-->
+    <!-- Page Content  -->
+    <div id="content" class="row p-4 p-md-5 pt-5">
+        <div id="main" class="col-12"
+             style="height:500px;background-color: #ffffff;padding: 20px;box-shadow: 0px 0 30px 10px #f0f0f0;margin-bottom: 20px;"></div>
+        <div id="markdown" class="col-12" style="">
+            <div class="row"
+                 style="background-color: #ffffff;padding: 20px;box-shadow: 0px 0 30px 10px #f0f0f0;margin-bottom: 20px;">
+                <div class="input-group col-3" style="width: 400px">
+                    <input id="IDText" type="text" class="form-control"
+                           placeholder="输入文章ID">
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary" type="button" id="downloadButton"
+                                style="background-color: #f26522; border-color:#f26522 ">
+                            <i class="fa fa-commenting"></i><span class="padding_10">载入</span>
+                        </button>
+                        <button class="btn btn-secondary" type="button" id="deleteButton"
+                                style="background-color: #f26522; border-color:#f26522 ">
+                            <i class="fa fa-commenting"></i><span class="padding_10">删除</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="input-group col-4" style="width: 400px">
+                    <input id="catalogText" type="text" class="form-control"
+                           placeholder="文章分类">
+                    <!--                    <div class="input-group-append">-->
+                    <!--                        <button class="btn btn-secondary" type="button" id="uploadButton"-->
+                    <!--                                style="background-color: #f26522; border-color:#f26522 ">-->
+                    <!--                            <i class="fa fa-commenting"></i><span class="padding_10">载入</span>-->
+                    <!--                        </button>-->
+                    <!--                    </div>-->
+                </div>
+                <div class="input-group col-5" style="width: 400px">
+                    <input id="nameText" type="text" class="form-control"
+                           placeholder="文章名称">
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary" type="button" id="uploadButton"
+                                style="background-color: #f26522; border-color:#f26522 ">
+                            <i class="fa fa-commenting"></i><span class="padding_10">保存</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <textarea id="data" class="col-12"
+                      style="height: 800px;background-color: #ffffff;padding: 20px;box-shadow: 0px 0 30px 10px #f0f0f0;margin-bottom: 20px;"></textarea>
+        </div>
+    </div>
+    <!--___________________________________________________________________________________________________________________________________-->
+</div>
+
+<script type="text/javascript">
+
+    $("#downloadButton").click(function () {
+        $.get("/dc/" + document.getElementById("IDText").value, {}, function (article) {
+            var data = document.getElementById("data");
+            var catalogText = document.getElementById("catalogText");
+            var nameText = document.getElementById("nameText");
+            data.value = article.t_data;
+            catalogText.value = article.t_fname;
+            nameText.value = article.t_cname;
+
+        })
+    })
+
+    $("#deleteButton").click(function () {
+        $.get("/de/" + document.getElementById("IDText").value, {}, function (message) {
+            alert(message);
+        })
+    })
+
+    $("#uploadButton").click(function () {
+        var IDText = document.getElementById("IDText");
+        var data = document.getElementById("data");
+        var catalogText = document.getElementById("catalogText");
+        var nameText = document.getElementById("nameText");
+        if (IDText.value == "") {
+            $.get("/dd", {
+                t_id: 0,
+                t_data: data.value,
+                t_fname: catalogText.value,
+                t_cname: nameText.value
+            }, function (message) {
+                alert(message);
+            })
+        } else {
+            $.get("/dd", {
+                t_id: IDText.value,
+                t_data: data.value,
+                t_fname: catalogText.value,
+                t_cname: nameText.value
+            }, function (message) {
+                alert(message);
+            })
+        }
+    })
+
+    var chartDom = document.getElementById('main');
+    var myChart = echarts.init(chartDom);
+    var option;
+    $.get('/db', function (data) {
+        option = {
+            tooltip: {
+                trigger: 'item',
+                triggerOn: 'mousemove'
+            },
+            series: [
+                {
+                    type: 'tree',
+                    id: 0,
+                    name: 'tree1',
+                    data: [data],
+                    // roam: true,
+
+                    top: '2%',
+                    left: '8%',
+                    bottom: '2%',
+                    right: '20%',
+
+                    symbolSize: 7,
+
+                    edgeShape: 'polyline',
+                    edgeForkPosition: '63%',
+                    initialTreeDepth: 1,
+
+                    lineStyle: {
+                        width: 2
+                    },
+
+                    label: {
+                        backgroundColor: '#fff',
+                        position: 'left',
+                        verticalAlign: 'middle',
+                        align: 'right'
+                    },
+
+                    leaves: {
+                        label: {
+                            position: 'right',
+                            verticalAlign: 'middle',
+                            align: 'left'
+                        }
+                    },
+
+                    emphasis: {
+                        focus: 'descendant'
+                    },
+
+                    expandAndCollapse: true,
+                    animationDuration: 550,
+                    animationDurationUpdate: 750
+                }
+            ]
+        };
+
+        option && myChart.setOption(option);
+    });
+
+
+</script>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/popper.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

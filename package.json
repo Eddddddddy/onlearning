@@ -1,0 +1,7 @@
+{
+  "name": "onlearning",
+  "version": "1.0.0",
+  "devDependencies": {
+    "echarts": "^5.0.2"
+  }
+}

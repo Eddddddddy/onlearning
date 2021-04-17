@@ -1,0 +1,1 @@
+UPDATE ecommerce.sellers SET s_email = '86955274@qq.com', s_password = 'wangdingyi', s_name = '王定一';

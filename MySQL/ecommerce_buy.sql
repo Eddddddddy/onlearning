@@ -1,0 +1,17 @@
+UPDATE ecommerce.buy SET b_email = '854214642@qq.com', b_name = 'Airpods Pro', b_state = 0;
+UPDATE ecommerce.buy SET b_email = '12345@qq.com', b_name = 'Airpods Pro', b_state = 0;
+UPDATE ecommerce.buy SET b_email = '854214642@qq.com', b_name = 'MSI GT83', b_state = 0;
+UPDATE ecommerce.buy SET b_email = '854214642@qq.com', b_name = 'Sony A7R4', b_state = 0;
+UPDATE ecommerce.buy SET b_email = '12345@qq.com', b_name = 'Mi wireless charger', b_state = 0;
+UPDATE ecommerce.buy SET b_email = '12345@qq.com', b_name = 'Forza Horizon 4', b_state = 2;
+UPDATE ecommerce.buy SET b_email = '12345@qq.com', b_name = 'Xbox Elite 2', b_state = 2;
+UPDATE ecommerce.buy SET b_email = '854214642@qq.com', b_name = 'DEATH STRANDING', b_state = 0;
+UPDATE ecommerce.buy SET b_email = '854214642@qq.com', b_name = 'Forza Horizon 4', b_state = 0;
+UPDATE ecommerce.buy SET b_email = '854214642@qq.com', b_name = 'HUAWEI nova 7', b_state = 0;
+UPDATE ecommerce.buy SET b_email = '854214642@qq.com', b_name = 'Lenovo Air14', b_state = 0;
+UPDATE ecommerce.buy SET b_email = '854214642@qq.com', b_name = 'OnePlus 8 Pro', b_state = 0;
+UPDATE ecommerce.buy SET b_email = '854214642@qq.com', b_name = 'OPPO Ace2', b_state = 0;
+UPDATE ecommerce.buy SET b_email = '854214642@qq.com', b_name = 'Mi wireless charger', b_state = 0;
+UPDATE ecommerce.buy SET b_email = '854214642@qq.com', b_name = 'MSI GS65', b_state = 0;
+UPDATE ecommerce.buy SET b_email = '854214642@qq.com', b_name = 'Redmi Book 14', b_state = 0;
+UPDATE ecommerce.buy SET b_email = '854214642@qq.com', b_name = 'HUAWEI MateBook', b_state = 0;

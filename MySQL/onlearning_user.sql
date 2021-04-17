@@ -1,0 +1,12 @@
+UPDATE onlearning.user SET u_name = '王定一', u_email = '854214642@qq.com', u_password = '123456', u_age = null, u_date = '2021-04-17 07:19:53', u_state = 1 WHERE u_id = 12;
+UPDATE onlearning.user SET u_name = '小明', u_email = 'xiaoming@163.com', u_password = '123456', u_age = null, u_date = '2021-04-14 15:28:46', u_state = 1 WHERE u_id = 21;
+UPDATE onlearning.user SET u_name = '王定一', u_email = '123@qq.com', u_password = '123456', u_age = '18', u_date = '2021-04-16 22:09:39', u_state = 1 WHERE u_id = 12334;
+UPDATE onlearning.user SET u_name = '尹思冉', u_email = '925253647@qq.com', u_password = '123456', u_age = '18', u_date = '2021-02-20 15:29:10', u_state = 1 WHERE u_id = 12345678;
+UPDATE onlearning.user SET u_name = '123@qq.com', u_email = '1234@QQ.com', u_password = '123456', u_age = null, u_date = '2021-04-16 22:09:33', u_state = 1 WHERE u_id = 12345679;
+UPDATE onlearning.user SET u_name = 'iiiiiiii', u_email = '123478778@QQ.com', u_password = '123456', u_age = null, u_date = '2021-04-16 22:09:37', u_state = 1 WHERE u_id = 12345681;
+UPDATE onlearning.user SET u_name = '石媛敏', u_email = 'shiyuanmin@163.com', u_password = '123456', u_age = null, u_date = '2021-04-14 15:32:15', u_state = 1 WHERE u_id = 12345682;
+UPDATE onlearning.user SET u_name = '毕昕玥', u_email = 'bixinyue@163.com', u_password = '123456', u_age = null, u_date = '2021-04-14 15:32:20', u_state = 1 WHERE u_id = 12345683;
+UPDATE onlearning.user SET u_name = '冯月', u_email = 'fengyue@163.com', u_password = '123456', u_age = null, u_date = '2021-03-14 15:32:22', u_state = 1 WHERE u_id = 12345684;
+UPDATE onlearning.user SET u_name = '李辰缘', u_email = 'lichenyuan@163.com', u_password = '123456', u_age = null, u_date = '2021-04-14 15:32:26', u_state = 1 WHERE u_id = 12345685;
+UPDATE onlearning.user SET u_name = '王储', u_email = 'wangchu@163.com', u_password = '123456', u_age = null, u_date = '2021-03-14 15:32:28', u_state = 1 WHERE u_id = 12345686;
+UPDATE onlearning.user SET u_name = '王子昌', u_email = 'wangzichang@163.com', u_password = '123456', u_age = null, u_date = '2021-03-14 15:32:32', u_state = 1 WHERE u_id = 12345687;

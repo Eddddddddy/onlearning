@@ -1,0 +1,1 @@
+UPDATE onlearning.administrator SET a_name = '小王', a_email = 'admin@qq.com', a_password = '123456' WHERE a_id = 1;
