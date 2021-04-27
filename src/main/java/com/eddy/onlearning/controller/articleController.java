@@ -106,7 +106,7 @@ public class articleController {
 
     @RequestMapping("/c/{c_text}/{t_id}/{u_id}")
     @ResponseBody
-    public Collection<Comment> Addcomment(@PathVariable("c_text") int t_id, @PathVariable("t_id") String c_text, @PathVariable("u_id") int u_id) {
+    public Collection<Comment> Addcomment(@PathVariable("c_text") String c_text, @PathVariable("t_id") int t_id, @PathVariable("u_id") int u_id) {
         System.out.println("comment");
         System.out.println(t_id);
         System.out.println(u_id);
