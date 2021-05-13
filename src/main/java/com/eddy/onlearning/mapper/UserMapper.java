@@ -18,8 +18,8 @@ public interface UserMapper {
     @Select("select * from user where u_name=#{u_name}")
     public Collection<User> getUserByName(String u_name);
 
-    @Insert("insert into user(u_id, u_name, u_email, u_password) values (#{u_id},#{u_name},#{u_email},#{u_password})")
-    public void addUser(String u_id, String u_name, String u_email, String u_password);
+    @Insert("insert into user(u_id, u_name, u_email, u_password, u_password_salt) values (#{u_id},#{u_name},#{u_email},#{u_password},#{u_password_salt})")
+    public void addUser(String u_id, String u_name, String u_email, String u_password, String u_password_salt);
 
     @Select("select MAX(u_id) from user")
     public String getMaxId();

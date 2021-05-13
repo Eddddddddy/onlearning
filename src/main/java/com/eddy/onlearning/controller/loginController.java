@@ -4,6 +4,7 @@ import com.eddy.onlearning.bean.Administrator;
 import com.eddy.onlearning.bean.User;
 import com.eddy.onlearning.mapper.AdministratorMapper;
 import com.eddy.onlearning.mapper.UserMapper;
+import org.apache.commons.codec.binary.Hex;
 import org.dom4j.rule.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.Date;
 
 @Controller
@@ -42,7 +47,19 @@ public class loginController {
             User user = userMapper.getUserByEmail(username);
             if (user != null) {
                 if (user.getU_state() == 1) {
-                    if (user.getU_password().equals(password)) {
+                    password = password+user.getU_password_salt();
+                    MessageDigest messageDigest;
+                    String encdeStr = "";
+                    try {
+                        messageDigest = MessageDigest.getInstance("SHA-256");
+                        byte[] hash = messageDigest.digest(password.getBytes("UTF-8"));
+                        encdeStr = Hex.encodeHexString(hash);
+                    } catch (NoSuchAlgorithmException e) {
+                        e.printStackTrace();
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+                    if (user.getU_password().equals(encdeStr)) {
                         session.setAttribute("loginUser", user);
                         return "redirect:/index.html";
                     }
@@ -53,7 +70,19 @@ public class loginController {
             } else {
                 Administrator admin = administratorMapper.getAdministratorByEmail(username);
                 if (admin != null) {
-                    if (admin.getA_password().equals(password)) {
+                    password = password+admin.getA_password_salt();
+                    MessageDigest messageDigest;
+                    String encdeStr = "";
+                    try {
+                        messageDigest = MessageDigest.getInstance("SHA-256");
+                        byte[] hash = messageDigest.digest(password.getBytes("UTF-8"));
+                        encdeStr = Hex.encodeHexString(hash);
+                    } catch (NoSuchAlgorithmException e) {
+                        e.printStackTrace();
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+                    if (admin.getA_password().equals(encdeStr)) {
                         session.setAttribute("loginAdmin", admin);
                         return "redirect:/dashboard";
                     }
@@ -93,7 +122,20 @@ public class loginController {
                     if (user == null) {
                         System.out.println(userMapper.getMaxId());
                         Long nextId = Long.valueOf(userMapper.getMaxId()) + 1;
-                        userMapper.addUser(nextId.toString(), username, id, password);
+                        SecureRandom random=new SecureRandom();
+                        Integer randNum = random.nextInt();
+                        MessageDigest messageDigest;
+                        String encdeStr = password + randNum;
+                        try {
+                            messageDigest = MessageDigest.getInstance("SHA-256");
+                            byte[] hash = messageDigest.digest(encdeStr.getBytes("UTF-8"));
+                            encdeStr = Hex.encodeHexString(hash);
+                        } catch (NoSuchAlgorithmException e) {
+                            e.printStackTrace();
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
+                        }
+                        userMapper.addUser(nextId.toString(), username, id, encdeStr, randNum.toString());
                         user = userMapper.getUserByEmail(id);
                         session.setAttribute("loginUser", user);
                         return "redirect:/index.html";

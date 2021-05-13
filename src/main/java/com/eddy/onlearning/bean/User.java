@@ -10,6 +10,15 @@ public class User {
     private String u_age;
     private Date u_date;
     private int u_state;
+    private String u_password_salt;
+
+    public String getU_password_salt() {
+        return u_password_salt;
+    }
+
+    public void setU_password_salt(String u_password_salt) {
+        this.u_password_salt = u_password_salt;
+    }
 
     public int getU_state() {
         return u_state;

@@ -5,6 +5,15 @@ public class Administrator {
     private String a_name;
     private String a_email;
     private String a_password;
+    private String a_password_salt;
+
+    public String getA_password_salt() {
+        return a_password_salt;
+    }
+
+    public void setA_password_salt(String a_password_salt) {
+        this.a_password_salt = a_password_salt;
+    }
 
     public int getA_id() {
         return a_id;
